@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
 {
 
     public Transform cameraTransform;
+    public Transform dropTransform;
 
     public Text hotbarText;
 
@@ -46,8 +47,7 @@ public class PlayerInventory : MonoBehaviour
         {
             Object obj = inventoryContents[selectedItem];
             obj.gameObject.SetActive(true);
-            obj.transform.position = cameraTransform.position;
-            obj.GetComponent<Rigidbody>().AddForce((cameraTransform.forward  * 5));
+            obj.transform.position = dropTransform.position;
             inventoryContents.Remove(obj);
             RefreshGUI();
         }
