@@ -11,6 +11,9 @@ public class PlayerInventory : MonoBehaviour
     public Transform dropTransform;
 
     public Text hotbarText;
+    public Canvas canvas;
+
+    public Texture2D selected;
 
     private List<Object> inventoryContents = new List<Object>();
 
@@ -37,7 +40,6 @@ public class PlayerInventory : MonoBehaviour
                         Object obj = hit.collider.GetComponent<Object>();
                         inventoryContents.Add(obj);
                         obj.gameObject.SetActive(false);
-                        RefreshGUI();
                     }
                 }
             }
@@ -49,26 +51,22 @@ public class PlayerInventory : MonoBehaviour
             obj.gameObject.SetActive(true);
             obj.transform.position = dropTransform.position;
             inventoryContents.Remove(obj);
-            RefreshGUI();
         }
     }
 
-    void RefreshGUI()
+    void OnGUI()
     {
-        string str = "Hotbar: \n";
         for (int i = 0; i < inventoryContents.Count; i++)
         {
-            str += i + ": " + inventoryContents[i].objectName;
-            if (selectedItem == i)
+            Object obj = inventoryContents[i];
+            Texture2D texture = obj.UITexture;
+            Graphics.DrawTexture(new Rect((50 * (i + 1)) + 100, Screen.height - 100, 100, 100), texture);
+            if (i == selectedItem)
             {
-                str += " SELECTED \n";
-            } else
-            {
-                str += "\n";
+                Graphics.DrawTexture(new Rect((50 * (i + 1)) + 80, Screen.height - 20, 16, 16), selected);
             }
         }
-        Debug.Log(str);
-        hotbarText.text = str;
+        hotbarText.text = "Hotbar";
     }
 
 }
