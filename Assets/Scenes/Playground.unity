@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a7c49d0046de94c9c48ea8d7499369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitvity: 100
+  mouseSensitvity: 200
   playerBody: {fileID: 1745210464}
 --- !u!1 &332477294
 GameObject:
@@ -589,11 +589,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1604852997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd0130980d3d2e84aa4d1272bf7bc1dd, type: 3}
+  m_Script: {fileID: 11500000, guid: fb5148b51daa2b943aaace1697b61add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Meatball
   UITexture: {fileID: 2800000, guid: 65393bd791b00a040bd33a943fda64fc, type: 3}
+  rb: {fileID: 0}
 --- !u!1 &1652658967
 GameObject:
   m_ObjectHideFlags: 0

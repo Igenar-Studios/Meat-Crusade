@@ -22,8 +22,35 @@ public class PlayerInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
+
+    public void AddItem(Object obj)
+    {
+        if (inventoryContents.Count < 5)
+        {
+            inventoryContents.Add(obj);
+            obj.gameObject.SetActive(false);
+        }
+    }
+
+    public void DropItem(Object obj)
+    {
+        if (!inventoryContents.Contains(obj)) return;
+        obj.gameObject.SetActive(true);
+        obj.transform.position = dropTransform.position;
+        obj.rb.velocity = Vector3.zero;
+        inventoryContents.Remove(obj);
+    }
+
+    public void ForceRemoveItem(Object obj)
+    {
+        if (!inventoryContents.Contains(obj)) return;
+        obj.gameObject.SetActive(true);
+        inventoryContents.Remove(obj);
+    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -35,22 +62,25 @@ public class PlayerInventory : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    if (inventoryContents.Count < 5)
-                    {
-                        Object obj = hit.collider.GetComponent<Object>();
-                        inventoryContents.Add(obj);
-                        obj.gameObject.SetActive(false);
-                    }
+                    AddItem(hit.collider.GetComponent<Object>());
                 }
             }
         }
 
         if (Input.GetKeyDown(KeyCode.G))
         {
+            DropItem(inventoryContents[selectedItem]);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
             Object obj = inventoryContents[selectedItem];
-            obj.gameObject.SetActive(true);
-            obj.transform.position = dropTransform.position;
-            inventoryContents.Remove(obj);
+            obj.OnPrimaryUse(this);
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            Object obj = inventoryContents[selectedItem];
+            obj.OnSecondaryUse(this);
         }
     }
 
@@ -61,12 +91,12 @@ public class PlayerInventory : MonoBehaviour
             Object obj = inventoryContents[i];
             Texture2D texture = obj.UITexture;
             Graphics.DrawTexture(new Rect((50 * (i + 1)) + 100, Screen.height - 100, 100, 100), texture);
-            if (i == selectedItem)
+            if (i == selectedItem && inventoryContents.Count > 0)
             {
                 Graphics.DrawTexture(new Rect((50 * (i + 1)) + 80, Screen.height - 20, 16, 16), selected);
             }
         }
-        hotbarText.text = "Hotbar";
+        hotbarText.text = (1f / Time.unscaledDeltaTime).ToString();
     }
 
 }

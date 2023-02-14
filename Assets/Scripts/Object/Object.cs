@@ -8,7 +8,7 @@ public class Object : MonoBehaviour
     public string objectName;
     public Texture2D UITexture;
 
-    Rigidbody rb;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +25,16 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void OnUse()    {
+    public virtual void OnPrimaryUse(PlayerInventory inventory)
+    {
+
+    }
+
+    public virtual void OnSecondaryUse(PlayerInventory inventory)
+    {
 
     }
 
