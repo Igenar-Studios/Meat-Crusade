@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,10 +18,13 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    public double health = 150;
+    public Text healthText;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        health -= 25;
     }
 
     // Update is called once per frame
@@ -43,5 +47,7 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        healthText.text = health.ToString();
     }
 }

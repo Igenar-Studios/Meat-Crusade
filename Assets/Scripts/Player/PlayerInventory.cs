@@ -50,6 +50,10 @@ public class PlayerInventory : MonoBehaviour
         inventoryContents.Remove(obj);
     }
 
+    public List<Object> GetContents()
+    {
+        return inventoryContents;
+    }
 
 
     // Update is called once per frame
@@ -72,12 +76,12 @@ public class PlayerInventory : MonoBehaviour
             DropItem(inventoryContents[selectedItem]);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && inventoryContents.Count > 0)
         {
             Object obj = inventoryContents[selectedItem];
             obj.OnPrimaryUse(this);
         }
-        else if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1) && inventoryContents.Count > 0)
         {
             Object obj = inventoryContents[selectedItem];
             obj.OnSecondaryUse(this);
@@ -96,7 +100,6 @@ public class PlayerInventory : MonoBehaviour
                 Graphics.DrawTexture(new Rect((50 * (i + 1)) + 80, Screen.height - 20, 16, 16), selected);
             }
         }
-        hotbarText.text = (1f / Time.unscaledDeltaTime).ToString();
     }
 
 }
