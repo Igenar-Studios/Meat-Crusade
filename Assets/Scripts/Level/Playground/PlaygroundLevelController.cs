@@ -6,13 +6,12 @@ using UnityEngine.SceneManagement;
 public class PlaygroundLevelController : LevelController
 {
 
-    public Jonathan jonathan;
+    public JonathanController jonathan;
 
     // Start is called before the first frame update
     void Start()
     {
         objectives.Add(GetComponent<MeatBallObjective>());
-        jonathan.state = NPC.NPCState.Resting;
     }
 
     // Update is called once per frame

@@ -5,7 +5,7 @@ using UnityEngine;
 public class KillJonathanObjective : Objective
 {
 
-    public Jonathan jonathan;
+    public JonathanController jonathan;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class KillJonathanObjective : Objective
 
     public override bool Condition()
     {
-        return jonathan.state == NPC.NPCState.Dead;
+        return jonathan.health <= 0;
     }
 
     public override string ObjectiveString()
