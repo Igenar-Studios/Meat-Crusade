@@ -28,6 +28,8 @@ public class JonathanController : Entity
 
     public Rigidbody rb;
 
+    public MeshCollider meshCollider;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -61,7 +63,7 @@ public class JonathanController : Entity
         {
             animator.SetBool("isRunning", false);
         }
-
+        meshCollider.transform.rotation = transform.rotation;
     }
 
     private void Patrolling()

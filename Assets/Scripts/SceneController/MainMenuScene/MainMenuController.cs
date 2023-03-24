@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
 
+    public RectTransform image;
+
+    public float rangeX, rangeY;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
