@@ -11,6 +11,7 @@ public class PlaygroundLevelController : LevelController
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         objectives.Add(GetComponent<MeatBallObjective>());
     }
 
@@ -23,7 +24,7 @@ public class PlaygroundLevelController : LevelController
     public override void EndLevel()
     {
         PlayerPrefs.SetString("NextScene", "SampleScene");
-        //SceneManager.LoadScene("Loading");
+        SceneManager.LoadScene("Loading");
     }
 
 }

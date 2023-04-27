@@ -26,6 +26,7 @@ public class MeatBallObjective : Objective
 
     public override bool Condition()
     {
+        if (!isEnabled) return false;
         List<Object> contents = inventory.GetContents();
         foreach (Object obj in contents)
         {

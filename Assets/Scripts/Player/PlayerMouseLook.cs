@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMouseLook : MonoBehaviour
 {
 
-    public float mouseSensitvity = 100f;
+    public float mouseSensitvity;
 
     public Transform playerBody;
 
@@ -14,12 +14,15 @@ public class PlayerMouseLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mouseSensitvity = PlayerPrefs.GetFloat("Sens");
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        mouseSensitvity = PlayerPrefs.GetFloat("Sens");
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitvity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitvity * Time.deltaTime;
 

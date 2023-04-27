@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public double health = 150;
     public Text healthText;
 
+    public bool acceptingInput = true;
+
     // Start is called before the first frame update
     void Start()
     {

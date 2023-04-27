@@ -26,8 +26,6 @@ public class JonathanController : Entity
 
     public Animator animator;
 
-    public Rigidbody rb;
-
     public MeshCollider meshCollider;
 
     // Start is called before the first frame update
@@ -39,14 +37,7 @@ public class JonathanController : Entity
     // Update is called once per frame
     void Update()
     {
-
-        if (health <= 0)
-        {
-            animator.SetTrigger("DeathTrigger");
-            rb.velocity = new Vector3(0, 0, 0);
-            rb.angularVelocity = new Vector3(0, 0, 0);
-            return;
-        }
+        base.Update();
 
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);

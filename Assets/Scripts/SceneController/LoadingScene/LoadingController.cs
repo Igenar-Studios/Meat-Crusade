@@ -8,8 +8,7 @@ public class LoadingController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string scene = PlayerPrefs.GetString("NextScene");
-        SceneManager.LoadScene(scene);
+        Invoke("LoadScene", 2.0f);
     }
 
     // Update is called once per frame
@@ -17,4 +16,11 @@ public class LoadingController : MonoBehaviour
     {
 
     }
+
+    void LoadScene()
+    {
+        string scene = PlayerPrefs.GetString("NextScene");
+        SceneManager.LoadScene(scene);
+    }
+
 }

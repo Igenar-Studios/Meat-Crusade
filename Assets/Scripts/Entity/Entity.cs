@@ -5,17 +5,25 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
 
-    public float health;
+    public float health = 150f;
+
+    public Rigidbody rb;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
-        health = 100.0f;
+        
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        
+        if (health <= 0)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            rb.angularVelocity = new Vector3(0, 0, 0);
+            gameObject.SetActive(false);
+            return;
+        }
     }
 }

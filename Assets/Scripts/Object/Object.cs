@@ -25,7 +25,10 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (TryGetComponent<Outline>(out Outline outline) )
+        {
+            outline.OutlineMode = Outline.Mode.SilhouetteOnly;
+        }
     }
 
     public virtual void OnPrimaryUse(PlayerInventory inventory)

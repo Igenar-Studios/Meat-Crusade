@@ -5,6 +5,8 @@ using UnityEngine;
 public class Objective : MonoBehaviour
 {
 
+    public bool isEnabled = true;
+
     // Start is called before the first frame update
     void Start()
     {
