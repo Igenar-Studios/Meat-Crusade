@@ -6,6 +6,7 @@ public class Objective : MonoBehaviour
 {
 
     public bool isEnabled = true;
+    public string name = "Objective";
 
     // Start is called before the first frame update
     void Start()

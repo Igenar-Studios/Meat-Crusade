@@ -119,11 +119,13 @@ public class PlayerInventory : MonoBehaviour
         {
             Object obj = inventoryContents[selectedItem];
             obj.OnPrimaryUse(this);
+            selectedItem = 0;
         }
         else if (Input.GetMouseButtonDown(1) && inventoryContents.Count > 0 && player.acceptingInput)
         {
             Object obj = inventoryContents[selectedItem];
             obj.OnSecondaryUse(this);
+            selectedItem = 0;
         }
     }
 

@@ -10,7 +10,7 @@ public class KillJonathanObjective : Objective
     // Start is called before the first frame update
     void Start()
     {
-        
+        name = "Kill Jonathan";
     }
 
     // Update is called once per frame

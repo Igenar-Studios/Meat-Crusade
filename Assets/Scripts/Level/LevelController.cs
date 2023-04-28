@@ -17,6 +17,8 @@ public class LevelController : MonoBehaviour
 
     public PlayerController player;
 
+    public Text currentObjective;
+
     private bool isPaused = false;
     private bool isSettings = false;
 
@@ -30,6 +32,7 @@ public class LevelController : MonoBehaviour
     public virtual void Update()
     {
         Objective objective = objectives[objectiveIndex];
+        currentObjective.text = objective.name;
         if (objective.Condition())
         {
             objective.ObjectivePassed();

@@ -429,7 +429,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3892009901443824295}
-  m_LocalRotation: {x: 0.000000081460364, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.00069161505, z: -0, w: 0.99999976}
   m_LocalPosition: {x: -0, y: -0.0013, z: 0.00194}
   m_LocalScale: {x: 0.9939215, y: 0.9939215, z: 0.9939215}
   m_Children: []
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 4743035302526551641}
   - component: {fileID: 4743035302526550439}
   m_Layer: 0
-  m_Name: angry_man_breathing (1)
+  m_Name: Jonathan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -994,21 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   rb: {fileID: 4743035302526551641}
-  agent: {fileID: 0}
   player: {fileID: 0}
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 128
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  timeBetweenAttacks: 20
-  sightRange: 10
-  attackRange: 10
-  playerInSightRange: 0
-  playerInAttackRange: 0
   animator: {fileID: 1204766587383951367}
   meshCollider: {fileID: 4743035302863281693}
 --- !u!1 &6047625788640050612
