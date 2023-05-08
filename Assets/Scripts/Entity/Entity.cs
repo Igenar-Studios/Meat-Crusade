@@ -9,6 +9,8 @@ public class Entity : MonoBehaviour
 
     public Rigidbody rb;
 
+    public GameObject deathParticle;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -23,6 +25,8 @@ public class Entity : MonoBehaviour
             rb.velocity = new Vector3(0, 0, 0);
             rb.angularVelocity = new Vector3(0, 0, 0);
             gameObject.SetActive(false);
+            GameObject particle = Instantiate(deathParticle);
+            particle.transform.position = transform.position;
             return;
         }
     }

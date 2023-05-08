@@ -897,9 +897,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8302f38c118bb442b26b9e740953d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 1
+  isEnabled: 0
   name: Objective
-  jonathan: {fileID: 4743035302666462632}
+  jonathan: {fileID: 1706158910}
 --- !u!1 &776632910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,9 +2246,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 150
   rb: {fileID: 1706158911}
+  deathParticle: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
   player: {fileID: 1745210466}
   moveSpeed: 5
-  playerTolerance: 5
+  playerToleranceDiscover: 5
+  playerToleranceChase: 10
+  playerToleranceAttack: 0.5
+  damageMin: 10
+  damageMax: 20
+  attackCooldown: 2000
 --- !u!54 &1706158911
 Rigidbody:
   m_ObjectHideFlags: 0

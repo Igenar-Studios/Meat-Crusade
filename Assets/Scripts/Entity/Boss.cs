@@ -11,8 +11,17 @@ public class Boss : Entity
 
     public float playerToleranceDiscover = 5f;
     public float playerToleranceChase = 10f;
+    public float playerToleranceAttack = 2f;
 
     private bool foundPlayer = false;
+
+    public float damageMin = 10;
+    public float damageMax = 20;
+
+    public float attackCooldown = 500;
+
+    private float lastAttack = 0f;
+
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -23,9 +32,10 @@ public class Boss : Entity
     // Update is called once per frame
     public virtual void Update()
     {
+        base.Update();
         if (!foundPlayer)
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < playerToleranceDiscover)
+            if (Vector3.Distance(player.transform.position, transform.position) <= playerToleranceDiscover)
             {
                 transform.LookAt(player.transform.position);
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
@@ -37,13 +47,24 @@ public class Boss : Entity
             }
         }
         else {
-            if (Vector3.Distance(player.transform.position, transform.position) < playerToleranceChase)
+            if (Vector3.Distance(player.transform.position, transform.position) <= playerToleranceAttack)
             {
                 transform.LookAt(player.transform.position);
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
                 foundPlayer = true;
+            }
+            else if (Vector3.Distance(player.transform.position, transform.position) <= playerToleranceChase)
+            {
+                transform.LookAt(player.transform.position);
+                transform.position += transform.forward * moveSpeed * Time.deltaTime;
+                foundPlayer = true;
+                if (Time.time - lastAttack >= attackCooldown / 1000f)
+                {
+                    player.health -= Random.Range(damageMin, damageMax);
+                    lastAttack = Time.time;
+                }
             } 
-            else
+            else 
             {
                 foundPlayer = false;
             }

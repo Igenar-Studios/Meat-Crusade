@@ -26,6 +26,7 @@ public class KillJonathanObjective : Objective
 
     public override bool Condition()
     {
+        if (!isEnabled) return false;
         return jonathan.health <= 0;
     }
 
