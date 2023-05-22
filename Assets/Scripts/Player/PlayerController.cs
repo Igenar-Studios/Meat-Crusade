@@ -19,14 +19,14 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
 
     public double health = 150;
-    public Text healthText;
+    public HealthBar healthBar;
 
     public bool acceptingInput = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        health -= 25;
+        healthBar.SetMaxHealth((int) health);
     }
 
     // Update is called once per frame
@@ -50,6 +50,6 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        healthText.text = health.ToString();
+        healthBar.SetHealth((int)health);
     }
 }
