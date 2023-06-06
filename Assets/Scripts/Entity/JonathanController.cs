@@ -21,7 +21,7 @@ public class JonathanController : Boss {
     {
         if (collision.collider.TryGetComponent<Meatball>(out Meatball meatball))
         {
-            meatball.enabled = false;
+            meatball.enabled = true;
             health -= 500;
         }
     }
