@@ -23,10 +23,17 @@ public class PlayerController : MonoBehaviour
 
     public bool acceptingInput = true;
 
+    private float y;
+    private float runSpeed;
+    private float walkSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
         healthBar.SetMaxHealth((int) health);
+        y = transform.localScale.y;
+        runSpeed = speed;
+        walkSpeed = speed / 2f;
     }
 
     // Update is called once per frame
@@ -37,6 +44,16 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = 0f;
+        }
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, y / 2, transform.localScale.z);
+            speed = walkSpeed;
+        } else
+        {
+            transform.localScale = new Vector3(transform.localScale.x, y, transform.localScale.z);
+            speed = runSpeed;
         }
  
         float x = Input.GetAxis("Horizontal");
