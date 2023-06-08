@@ -16,6 +16,5 @@ public class JonathanController : Boss {
     {
         base.Update();
     }
-
 }
 
