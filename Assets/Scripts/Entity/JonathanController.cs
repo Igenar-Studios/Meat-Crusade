@@ -16,15 +16,5 @@ public class JonathanController : Boss {
     {
         base.Update();
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.TryGetComponent<Meatball>(out Meatball meatball))
-        {
-            meatball.enabled = true;
-            health -= 500;
-        }
-    }
-
 }
 

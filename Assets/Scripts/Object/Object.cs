@@ -11,7 +11,7 @@ public class Object : MonoBehaviour
     public Rigidbody rb;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         if (TryGetComponent(out Rigidbody rbTemp))
         {
@@ -23,7 +23,7 @@ public class Object : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (TryGetComponent<Outline>(out Outline outline) )
         {

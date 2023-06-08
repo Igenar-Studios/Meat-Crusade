@@ -72,7 +72,6 @@ public class PlayerInventory : MonoBehaviour
                     outline.OutlineMode = Outline.Mode.OutlineAll;
                     prevOutline = outline;
                 }
-                
                 if (Input.GetKeyDown(KeyCode.F) && player.acceptingInput)
                 {
                     AddItem(hit.collider.GetComponent<Object>());
