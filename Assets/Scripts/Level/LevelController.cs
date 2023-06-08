@@ -31,12 +31,15 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        Objective objective = objectives[objectiveIndex];
-        currentObjective.text = objective.name;
-        if (objective.Condition())
+        if (objectives.Count > 0)
         {
-            objective.ObjectivePassed();
-            NextObjective();
+            Objective objective = objectives[objectiveIndex];
+            currentObjective.text = objective.name;
+            if (objective.Condition())
+            {
+                objective.ObjectivePassed();
+                NextObjective();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
