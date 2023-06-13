@@ -22,11 +22,12 @@ public class Boss : Entity
 
     private float lastAttack = 0f;
 
+    private float rotX;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
-        
+        rotX = transform.rotation.x;
     }
 
     // Update is called once per frame
@@ -50,6 +51,7 @@ public class Boss : Entity
             if (Vector3.Distance(player.transform.position, transform.position) <= playerToleranceAttack)
             {
                 transform.LookAt(player.transform.position);
+   
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
                 foundPlayer = true;
             }
