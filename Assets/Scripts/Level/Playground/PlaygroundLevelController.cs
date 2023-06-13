@@ -22,6 +22,8 @@ public class PlaygroundLevelController : LevelController
 
     public override void EndLevel()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         PlayerPrefs.SetString("NextScene", "MainMenu");
         SceneManager.LoadScene("Loading");
     }

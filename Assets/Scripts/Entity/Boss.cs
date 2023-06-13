@@ -22,17 +22,23 @@ public class Boss : Entity
 
     private float lastAttack = 0f;
 
+    private float rotX;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
-        
+        rotX = transform.eulerAngles.x;
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
         base.Update();
+        transform.eulerAngles = new Vector3(
+            rotX,
+            transform.eulerAngles.y,
+            transform.eulerAngles.z
+            );
         if (!foundPlayer)
         {
             if (Vector3.Distance(player.transform.position, transform.position) <= playerToleranceDiscover)

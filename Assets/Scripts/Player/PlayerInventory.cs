@@ -21,8 +21,8 @@ public class PlayerInventory : MonoBehaviour
 
     private int selectedItem = 0;
 
-    private ThrowMeatballObjective meatballObjective;
-    private ThrowCanObjective canObjective;
+    private ThrowMeatballObjective meatballObjective = null;
+    private ThrowCanObjective canObjective = null;
 
     public LevelController levelController;
 
@@ -130,14 +130,21 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && inventoryContents.Count > 0 && player.acceptingInput)
         {
             Object obj = inventoryContents[selectedItem];
-            checkObjectives(obj);
+            if (meatballObjective != null && canObjective != null)
+            {
+                checkObjectiveMeatball(obj);
+                checkObjectiveCan(obj);
+            }
             obj.OnPrimaryUse(this);
             selectedItem = 0;
         }
         else if (Input.GetMouseButtonDown(1) && inventoryContents.Count > 0 && player.acceptingInput)
         {
             Object obj = inventoryContents[selectedItem];
-            checkObjectives(obj);
+            if (canObjective != null)
+            {
+                checkObjectiveCan(obj);
+            }
             obj.OnSecondaryUse(this);
             selectedItem = 0;
         }
@@ -157,12 +164,16 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    void checkObjectives(Object obj)
+    void checkObjectiveMeatball(Object obj)
     {
         if (meatballObjective != null && obj.GetComponent<Meatball>() != null)
         {
             meatballObjective.thrown = true;
         }
+    }
+
+    void checkObjectiveCan(Object obj)
+    {
         if (canObjective != null && obj.GetComponent<Can>() != null)
         {
             canObjective.thrown = true;
