@@ -1023,6 +1023,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3911631727728925551, guid: e858414f383a253478f50921a278dc7d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3911631727728925551, guid: e858414f383a253478f50921a278dc7d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e858414f383a253478f50921a278dc7d, type: 3}
 --- !u!224 &420039253 stripped
@@ -1060,8 +1068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb34e81874e72844ebf1cfc10eb009aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  rb: {fileID: 0}
+  health: 500
+  rb: {fileID: 639756463}
   deathParticle: {fileID: 0}
   player: {fileID: 1641449078}
   moveSpeed: 5
@@ -1087,6 +1095,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!111 &639756464
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639756460}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: -623603649343465320, guid: b8190ffcacee085408d8e74c6f9e48ff, type: 3}
+  m_Animations:
+  - {fileID: -623603649343465320, guid: b8190ffcacee085408d8e74c6f9e48ff, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &649400980
 GameObject:
   m_ObjectHideFlags: 0
