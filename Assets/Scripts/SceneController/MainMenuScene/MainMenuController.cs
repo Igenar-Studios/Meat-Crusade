@@ -26,7 +26,7 @@ public class MainMenuController : MonoBehaviour
 
     public void playCallback()
     {
-        SceneManager.LoadScene("Playground");
+        SceneManager.LoadScene("LevelsMenu");
     }
 
     public void settingsCallback()
