@@ -21,24 +21,11 @@ public class PlayerInventory : MonoBehaviour
 
     private int selectedItem = 0;
 
-    private ThrowMeatballObjective meatballObjective = null;
-    private ThrowCanObjective canObjective = null;
-
-    public LevelController levelController;
-
     private Outline prevOutline = null;
     // Start is called before the first frame update
     void Start()
     {
-        if (levelController.TryGetComponent<ThrowMeatballObjective>(out ThrowMeatballObjective objective))
-        {
-            meatballObjective = objective;
-        }
 
-        if (levelController.TryGetComponent<ThrowCanObjective>(out ThrowCanObjective objective2))
-        {
-            canObjective = objective2;
-        }
     }
 
     public void AddItem(Object obj)
@@ -78,7 +65,7 @@ public class PlayerInventory : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cameraTransform.transform.position, cameraTransform.forward, out hit, 5f))
         {
-            if (hit.collider.GetComponent<Object>() != null)
+            if (hit.collider.CompareTag("Object"))
             {
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))
                 {
@@ -130,21 +117,12 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && inventoryContents.Count > 0 && player.acceptingInput)
         {
             Object obj = inventoryContents[selectedItem];
-            if (meatballObjective != null && canObjective != null)
-            {
-                checkObjectiveMeatball(obj);
-                checkObjectiveCan(obj);
-            }
             obj.OnPrimaryUse(this);
             selectedItem = 0;
         }
         else if (Input.GetMouseButtonDown(1) && inventoryContents.Count > 0 && player.acceptingInput)
         {
             Object obj = inventoryContents[selectedItem];
-            if (canObjective != null)
-            {
-                checkObjectiveCan(obj);
-            }
             obj.OnSecondaryUse(this);
             selectedItem = 0;
         }
@@ -161,22 +139,6 @@ public class PlayerInventory : MonoBehaviour
             {
                 Graphics.DrawTexture(new Rect((100 * (i + 1)) + 5, Screen.height - 20, 16, 16), selected);
             }
-        }
-    }
-
-    void checkObjectiveMeatball(Object obj)
-    {
-        if (meatballObjective != null && obj.GetComponent<Meatball>() != null)
-        {
-            meatballObjective.thrown = true;
-        }
-    }
-
-    void checkObjectiveCan(Object obj)
-    {
-        if (canObjective != null && obj.GetComponent<Can>() != null)
-        {
-            canObjective.thrown = true;
         }
     }
 

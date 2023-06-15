@@ -20,9 +20,7 @@ public class RangeController : LevelController
 
     public override void EndLevel()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        PlayerPrefs.SetString("NextScene", "MainMenu");
+        PlayerPrefs.SetString("NextScene", "SampleScene");
         SceneManager.LoadScene("Loading");
     }
 }
