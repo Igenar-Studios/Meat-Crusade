@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private float y;
     private float runSpeed;
     private float walkSpeed;
+    private float jumpHeight = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded && velocity.y > 0)
         {
-            velocity.y = 0f;
+            velocity.y = 5f;
         }
 
         if (Input.GetKey(KeyCode.LeftControl))
@@ -55,7 +56,11 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, y, transform.localScale.z);
             speed = runSpeed;
         }
- 
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
