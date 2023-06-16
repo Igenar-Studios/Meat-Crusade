@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 514efe78815668245986d5e67a0d5073, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -280,6 +280,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91f28209f6455c469250c7ba913f256, type: 3}
+--- !u!114 &150721917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8296136737642701934, guid: a91f28209f6455c469250c7ba913f256, type: 3}
+  m_PrefabInstance: {fileID: 150721916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56d0915b106af94fa23e7676606a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &283623677
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 521306333}
   - component: {fileID: 521306334}
+  - component: {fileID: 521306335}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -600,13 +612,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927c0816ec7cdd84d8e9f9dfc545a984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectives: []
+  objectives:
+  - {fileID: 521306335}
   objectiveIndex: 0
   pauseMenu: {fileID: 1570744871}
   settingsMenu: {fileID: 1753397962}
   sensSlider: {fileID: 298799245}
   player: {fileID: 934844363}
   currentObjective: {fileID: 1368946906}
+--- !u!114 &521306335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521306332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc12d860bcc48143940ad1c34e35078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnabled: 1
+  name: Pick Up Meatball
+  inventory: {fileID: 150721917}
 --- !u!1001 &538641132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2284,6 +2312,22 @@ PrefabInstance:
     - target: {fileID: 1391797195786556381, guid: e858414f383a253478f50921a278dc7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3911631727728925551, guid: e858414f383a253478f50921a278dc7d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3911631727728925551, guid: e858414f383a253478f50921a278dc7d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126194830357726213, guid: e858414f383a253478f50921a278dc7d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 521306334}
+    - target: {fileID: 7126194830357726213, guid: e858414f383a253478f50921a278dc7d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuAction
       objectReference: {fileID: 0}
     - target: {fileID: 7126194830441552201, guid: e858414f383a253478f50921a278dc7d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

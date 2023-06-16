@@ -10030,7 +10030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
-  name: Objective
+  name: Pick Up Meatball
   inventory: {fileID: 1652658969}
 --- !u!114 &711726470
 MonoBehaviour:
@@ -10066,8 +10066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8302f38c118bb442b26b9e740953d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  name: Objective
+  isEnabled: 1
+  name: Kill Jonathan
   jonathan: {fileID: 1706158910}
 --- !u!1 &715323653
 GameObject:
