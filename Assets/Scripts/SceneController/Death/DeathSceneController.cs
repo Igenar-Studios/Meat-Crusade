@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
-public class SplashController : MonoBehaviour
+public class DeathSceneController : MonoBehaviour
 {
 
     public float fadeDelay = 0.5f;
@@ -19,7 +20,7 @@ public class SplashController : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        GetComponent<Image>().color = new Color(1f, 1f, 1f, 0f);
+        GetComponent<TextMeshProUGUI>().color = new Color(255f, 0f, 0f, 0f);
         startTime = Time.time;
         Invoke("LoadMainMenu", screenDuration);
         Invoke("StartFade", fadeDelay);
@@ -32,9 +33,9 @@ public class SplashController : MonoBehaviour
         {
             float elapsedTime = Time.time - startTime;
             float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
-            Color color = GetComponent<Image>().color;
+            Color color = GetComponent<TextMeshProUGUI>().color;
             color.a = alpha;
-            GetComponent<Image>().color = color;
+            GetComponent<TextMeshProUGUI>().color = color;
         }
     }
 
@@ -45,7 +46,9 @@ public class SplashController : MonoBehaviour
 
     void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        PlayerPrefs.SetString("NextScene", "MainMenu");
+        SceneManager.LoadScene("Loading");
     }
 
 }
+

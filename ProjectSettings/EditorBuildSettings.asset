@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Arby.unity
     guid: 927ed59f1a4e6ac4c8f1971f568df263
   - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: a48de45a4ea66c1418960bea8d1adb66
+  - enabled: 1
     path: Assets/Scenes/Loading.unity
     guid: f29b2fd4eaf0b8d4eb296439f3bf824a
   m_configObjects: {}

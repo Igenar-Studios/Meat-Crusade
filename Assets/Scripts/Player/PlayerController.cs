@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         healthBar.SetMaxHealth((int) health);
         y = transform.localScale.y;
         runSpeed = speed;
@@ -73,5 +76,10 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         healthBar.SetHealth((int)health);
+
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Death");
+        }
     }
 }
