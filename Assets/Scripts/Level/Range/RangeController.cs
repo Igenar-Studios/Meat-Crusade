@@ -20,7 +20,7 @@ public class RangeController : LevelController
 
     public override void EndLevel()
     {
-        PlayerPrefs.SetString("NextScene", "SampleScene");
+        PlayerPrefs.SetString("NextScene", "MainMenu");
         SceneManager.LoadScene("Loading");
     }
 }

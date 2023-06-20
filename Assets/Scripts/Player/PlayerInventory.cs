@@ -65,7 +65,7 @@ public class PlayerInventory : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cameraTransform.transform.position, cameraTransform.forward, out hit, 5f))
         {
-            if (hit.collider.CompareTag("Object"))
+            if (hit.collider.GetComponent<Object>() != null)
             {
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))
                 {

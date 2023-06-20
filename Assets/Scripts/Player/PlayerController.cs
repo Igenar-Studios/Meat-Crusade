@@ -32,12 +32,16 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         healthBar.SetMaxHealth((int) health);
         y = transform.localScale.y;
         runSpeed = speed;
         walkSpeed = speed / 2f;
+    }
+
+    private void Awake()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
