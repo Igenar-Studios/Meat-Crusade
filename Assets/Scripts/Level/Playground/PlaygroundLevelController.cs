@@ -12,7 +12,6 @@ public class PlaygroundLevelController : LevelController
     void Start()
     {
         base.Start();
-        objectives.Add(GetComponent<MeatBallObjective>());
     }
 
     // Update is called once per frame
@@ -23,7 +22,7 @@ public class PlaygroundLevelController : LevelController
 
     public override void EndLevel()
     {
-        PlayerPrefs.SetString("NextScene", "SampleScene");
+        PlayerPrefs.SetString("NextScene", "MainMenu");
         SceneManager.LoadScene("Loading");
     }
 
