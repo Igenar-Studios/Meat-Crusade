@@ -30,9 +30,9 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("LevelsMenu");
     }
 
-    public void settingsCallback()
+    public void exitCallback()
     {
-        //add settings scene
+        Application.Quit();
     }
 
 }
